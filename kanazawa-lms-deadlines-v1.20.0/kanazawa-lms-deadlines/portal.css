@@ -1,0 +1,282 @@
+#ku-lms-deadline-root {
+  --ku-navy: #12324a;
+  --ku-blue: #0a6e91;
+  --ku-paper: #fffdf8;
+  --ku-line: #d9e2e8;
+  --ku-muted: #60717d;
+  color: #18252e;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+  position: sticky;
+  top: var(--ku-portal-header-height, 0px);
+  z-index: 2147482000;
+  margin: 0 0 18px;
+  text-align: left;
+}
+
+#ku-lms-deadline-root * { box-sizing: border-box; }
+
+#ku-lms-deadline-root .ku-lms-card {
+  background: var(--ku-paper);
+  border: 1px solid #c9d6dd;
+  border-top: 5px solid var(--ku-blue);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 8px 28px rgba(21, 48, 64, .16);
+  overflow: hidden;
+}
+
+#ku-lms-deadline-root .ku-lms-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 22px 14px;
+  background: linear-gradient(110deg, #f8fcfd 0%, #fffdf8 58%, #f4f0df 100%);
+}
+
+#ku-lms-deadline-root .ku-lms-eyebrow {
+  color: var(--ku-blue);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+#ku-lms-deadline-root h2 {
+  color: var(--ku-navy);
+  font-size: 22px;
+  line-height: 1.3;
+  margin: 3px 0 2px;
+}
+
+#ku-lms-deadline-root p {
+  color: var(--ku-muted);
+  font-size: 12px;
+  margin: 0;
+}
+
+#ku-lms-deadline-root .ku-lms-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+#ku-lms-deadline-root .ku-lms-header-controls {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+#ku-lms-deadline-root .ku-lms-collapsed-summary { display: none; }
+
+#ku-lms-deadline-root .ku-lms-checkbox {
+  align-items: center;
+  color: #43545f;
+  display: flex;
+  font-size: 12px;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+#ku-lms-deadline-root button,
+#ku-lms-deadline-root .ku-lms-button {
+  align-items: center;
+  background: var(--ku-navy);
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  justify-content: center;
+  min-width: 116px;
+  padding: 10px 14px;
+  text-decoration: none;
+}
+
+#ku-lms-deadline-root button:hover,
+#ku-lms-deadline-root .ku-lms-button:hover { background: #0a6e91; color: white; text-decoration: none; }
+#ku-lms-deadline-root .ku-lms-button.secondary { background: #dfe9ed; color: #12324a; }
+#ku-lms-deadline-root .ku-lms-button.secondary:hover { background: #cbdde4; color: #12324a; }
+#ku-lms-deadline-root button:disabled { cursor: wait; opacity: .72; }
+#ku-lms-deadline-root button[hidden] { display: none !important; }
+#ku-lms-deadline-root .ku-lms-restore-hidden {
+  background: #e8eef1;
+  color: #344a57;
+  min-width: auto;
+  padding: 8px 10px;
+}
+#ku-lms-deadline-root .ku-lms-restore-hidden:hover { background: #d5e2e8; color: #203743; }
+#ku-lms-deadline-root .ku-lms-toggle {
+  background: #0a6e91;
+  min-width: 82px;
+  padding-inline: 12px;
+}
+#ku-lms-deadline-root button.is-loading span { display: inline-block; animation: ku-lms-spin 1s linear infinite; }
+@keyframes ku-lms-spin { to { transform: rotate(360deg); } }
+
+#ku-lms-deadline-root .ku-lms-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 22px 14px;
+}
+
+#ku-lms-deadline-root .ku-lms-chip,
+#ku-lms-deadline-root .ku-lms-status {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 6px 9px;
+  white-space: nowrap;
+}
+
+#ku-lms-deadline-root .ku-lms-chip.danger,
+#ku-lms-deadline-root .ku-lms-status.overdue { background: #fde5e4; color: #a52d2a; }
+#ku-lms-deadline-root .ku-lms-chip.warning,
+#ku-lms-deadline-root .ku-lms-status.pending { background: #fff0cb; color: #7c5300; }
+#ku-lms-deadline-root .ku-lms-chip.success,
+#ku-lms-deadline-root .ku-lms-status.submitted { background: #dff3e8; color: #176540; }
+#ku-lms-deadline-root .ku-lms-chip.neutral,
+#ku-lms-deadline-root .ku-lms-status.none,
+#ku-lms-deadline-root .ku-lms-status.unknown { background: #e9eff3; color: #465965; }
+#ku-lms-deadline-root .ku-lms-status.error { background: #f2e6f5; color: #743784; }
+
+#ku-lms-deadline-root .ku-lms-message {
+  border-left: 4px solid #628498;
+  font-size: 12px;
+  margin: 0 22px 12px;
+  padding: 9px 11px;
+}
+#ku-lms-deadline-root .ku-lms-message.success { background: #e7f6ee; border-color: #309167; }
+#ku-lms-deadline-root .ku-lms-message.warning { background: #fff5dc; border-color: #d0931a; }
+#ku-lms-deadline-root .ku-lms-message.error { background: #fdeceb; border-color: #c44843; }
+
+#ku-lms-deadline-root .ku-lms-table-wrap { max-height: 350px; overflow: auto; }
+#ku-lms-deadline-root table { border-collapse: collapse; font-size: 12px; width: 100%; }
+#ku-lms-deadline-root th {
+  background: #edf3f5;
+  border-bottom: 1px solid #cfdce2;
+  color: #52636d;
+  font-size: 10px;
+  letter-spacing: .08em;
+  padding: 9px 12px;
+  position: sticky;
+  text-transform: uppercase;
+  top: 0;
+  z-index: 1;
+}
+#ku-lms-deadline-root td { border-bottom: 1px solid #e5ecef; padding: 10px 12px; vertical-align: middle; }
+#ku-lms-deadline-root tbody tr:hover { background: #f5fafb; }
+#ku-lms-deadline-root tbody tr.ku-lms-row-submitted { background: #fff; }
+#ku-lms-deadline-root tbody tr.ku-lms-row-deadline-soon { background: #fff8d8; }
+#ku-lms-deadline-root tbody tr.ku-lms-row-deadline-soon:hover { background: #fff1b8; }
+#ku-lms-deadline-root tbody tr.ku-lms-row-deadline-passed { background: #fff0f0; }
+#ku-lms-deadline-root tbody tr.ku-lms-row-deadline-passed:hover { background: #ffe2e2; }
+#ku-lms-deadline-root td:nth-child(1),
+#ku-lms-deadline-root th:nth-child(1) { text-align: center; width: 64px; }
+#ku-lms-deadline-root td:nth-child(2) { font-weight: 700; width: 25%; }
+#ku-lms-deadline-root td:nth-child(4),
+#ku-lms-deadline-root td:nth-child(5) { font-variant-numeric: tabular-nums; }
+#ku-lms-deadline-root td:nth-child(5) { white-space: nowrap; }
+#ku-lms-deadline-root td:nth-child(6) { width: 76px; }
+#ku-lms-deadline-root .ku-lms-hide-assignment {
+  background: transparent;
+  border: 1px solid #bdcbd2;
+  color: #52636d;
+  font-size: 11px;
+  min-width: auto;
+  padding: 6px 9px;
+  white-space: nowrap;
+}
+#ku-lms-deadline-root .ku-lms-hide-assignment:hover {
+  background: #c43d3d;
+  border-color: #a92f2f;
+  color: #fff;
+}
+#ku-lms-deadline-root .ku-lms-completed-checkbox {
+  accent-color: #18714c;
+  cursor: pointer;
+  height: 19px;
+  margin: 0;
+  width: 19px;
+}
+#ku-lms-deadline-root .ku-lms-completed-checkbox.is-checking {
+  animation: ku-lms-check-pop .26s ease-out;
+}
+@keyframes ku-lms-check-pop {
+  0% { transform: scale(.72) rotate(-8deg); }
+  55% { transform: scale(1.3) rotate(4deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #ku-lms-deadline-root .ku-lms-completed-checkbox.is-checking { animation: none; }
+}
+#ku-lms-deadline-root a { color: #075f81; text-decoration: none; }
+#ku-lms-deadline-root a:hover { text-decoration: underline; }
+#ku-lms-deadline-root .ku-lms-empty { color: var(--ku-muted); padding: 26px; text-align: center; }
+
+#ku-lms-deadline-root footer {
+  align-items: center;
+  background: #f7f9fa;
+  color: #71808a;
+  display: flex;
+  font-size: 10px;
+  gap: 14px;
+  padding: 8px 12px;
+}
+
+#ku-lms-deadline-root .ku-lms-footer-note { margin-left: auto; }
+#ku-lms-deadline-root .ku-lms-version {
+  border-left: 1px solid #ccd7dc;
+  color: #8a989f;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .04em;
+  padding-left: 10px;
+  white-space: nowrap;
+}
+
+.ku-lms-portal-header-pinned {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 2147483000 !important;
+}
+
+#ku-lms-deadline-root.is-collapsed { margin-bottom: 10px; }
+#ku-lms-deadline-root.is-collapsed .ku-lms-card {
+  border-radius: 0 0 9px 9px;
+  box-shadow: 0 4px 14px rgba(21, 48, 64, .12);
+}
+#ku-lms-deadline-root.is-collapsed .ku-lms-header { padding: 8px 12px; }
+#ku-lms-deadline-root.is-collapsed .ku-lms-eyebrow,
+#ku-lms-deadline-root.is-collapsed #ku-lms-subtitle,
+#ku-lms-deadline-root.is-collapsed .ku-lms-actions,
+#ku-lms-deadline-root.is-collapsed .ku-lms-summary,
+#ku-lms-deadline-root.is-collapsed .ku-lms-message,
+#ku-lms-deadline-root.is-collapsed .ku-lms-table-wrap,
+#ku-lms-deadline-root.is-collapsed footer { display: none !important; }
+#ku-lms-deadline-root.is-collapsed h2 { font-size: 16px; margin: 0; }
+#ku-lms-deadline-root.is-collapsed .ku-lms-collapsed-summary {
+  color: #52636d;
+  display: inline;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  #ku-lms-deadline-root { position: sticky; }
+  #ku-lms-deadline-root .ku-lms-header { align-items: flex-start; flex-direction: column; }
+  #ku-lms-deadline-root.is-collapsed .ku-lms-header { align-items: center; flex-direction: row; }
+  #ku-lms-deadline-root .ku-lms-header-controls { justify-content: space-between; width: 100%; }
+  #ku-lms-deadline-root.is-collapsed .ku-lms-header-controls { width: auto; }
+  #ku-lms-deadline-root .ku-lms-actions { justify-content: space-between; width: 100%; }
+  #ku-lms-deadline-root .ku-lms-table-wrap { max-height: 420px; }
+  #ku-lms-deadline-root table { min-width: 800px; }
+}

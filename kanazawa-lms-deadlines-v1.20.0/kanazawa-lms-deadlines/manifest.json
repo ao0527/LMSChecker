@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "金沢大学 LMS 課題チェッカー",
+  "version": "1.20.0",
+  "description": "アカンサスポータルの先頭に、科目別の課題・提出状況・期限を一覧表示します。",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*.kanazawa-u.ac.jp/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "金沢大学 LMS 課題チェッカー",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://acanthus.cis.kanazawa-u.ac.jp/base/top/*"
+      ],
+      "js": [
+        "parser.js",
+        "portal.js"
+      ],
+      "css": [
+        "portal.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://lms-wc.el.kanazawa-u.ac.jp/webclass/*"
+      ],
+      "js": [
+        "parser.js",
+        "lms-capture.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://eduweb.sta.kanazawa-u.ac.jp/*"
+      ],
+      "js": [
+        "parser.js",
+        "timetable-capture.js"
+      ],
+      "css": [
+        "timetable.css"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
